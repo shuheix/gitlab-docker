@@ -10,14 +10,15 @@ mkdir -p ~/gitlab/{config,logs,data}
 docker compose up -d
 ```
 
-gilab/config/gitlab.rbが生成されるので編集する
-
-```ruby
-external_url 'http://localhost:8081'
-nginx['listen_port'] = 80
+webui
+```
+root
+passwordはrails cしてからかえたほうがいい
 ```
 
-再度実行
+
+rails cの代替
 ```
-docker compose up -d
+docker exec -it gitlab-docker-web-1 bash
+gitlab-rails c
 ```
